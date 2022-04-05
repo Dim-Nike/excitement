@@ -4,9 +4,22 @@ class Table:
         self.next_count_card = 1
         self.table_card = {}
 
-
     def total_card(self, cards):
-        self.table_card = cards
+        if self.table_card != {}:
+            for key in cards:
+                for k in self.table_card:
+                     if key == k:
+                         self.table_card[k].append(cards.get(key))
+                         break
+                     else:
+                         self.table_card[key] = cards.get(key)
+                         break
+
+
+
+
+        else:
+            self.table_card = cards
 
 
         print(f'Я стол, мои карты: {self.table_card}')

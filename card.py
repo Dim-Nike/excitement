@@ -86,13 +86,22 @@ class Casino:
 Cas_1 = Casino()
 
 Room = Table()
-Cas_1.get_card(count_cycle=Room.start_count_card)
-card_table = Cas_1.set_card
-print(card_table)
-Room.total_card(cards=card_table)
-Cas_1.get_card(count_cycle=Room.next_count_card)
-card_table = Cas_1.set_card
-Room.total_card(cards=card_table)
+# Cas_1.get_card(count_cycle=Room.start_count_card)
+# table_cards = Cas_1.set_card
+# print(table_cards)
+# Room.total_card(cards=table_cards)
+# Cas_1.get_card(count_cycle=Room.next_count_card)
+# table_cards = Cas_1.set_card
+# print(table_cards)
+# Room.total_card(cards=table_cards)
+
+Cas_1.get_card(count_cycle=3)
+table_cards = Cas_1.set_card
+Room.total_card(cards=table_cards)
+Cas_1.get_card(count_cycle=1)
+table_cards = Cas_1.set_card
+Room.total_card(cards=table_cards)
+
 
 Ivan = Person(name='Иван', chips=1000, room=True)
 Sveta = Person(name='Света', chips=1000, room=True)
@@ -102,12 +111,6 @@ Ivan_card = Cas_1.set_card
 Cas_1.get_card(Sveta.count_card)
 Sveta_card = Cas_1.set_card
 
-# Cas_1.get_card(count_cycle=Table_1.start_count_card)
-# Table_1_start_card = Cas_1.set_card
-# Table_1.total_card(cards=Table_1_start_card)
-# Cas_1.get_card(count_cycle=Table_1.start_count_card)
-# Table_1_start_card = Cas_1.set_card
-# Table_1.total_card(cards=Table_1_start_card)
 
 
 
@@ -116,7 +119,8 @@ Sveta_card = Cas_1.set_card
 
 
 
-Ivan.get_card(two_card=Ivan_card)
-Sveta.get_card(two_card=Sveta_card)
 
-print(Cas_1.getCard())
+# Ivan.get_card(two_card=Ivan_card)
+# Sveta.get_card(two_card=Sveta_card)
+#
+# print(Cas_1.getCard())
