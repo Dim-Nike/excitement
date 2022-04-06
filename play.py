@@ -38,16 +38,28 @@ class Person:
     def examination_pair(self):
         local_list = []
         result = Counter(self.total_without_suit_card)
-        for count in result:
-            local_list.append(result[count])
-            print(local_list)
-        for mean in local_list:
-            if mean == 4:
-                print(f'Я {self.name} у меня карэ!')
-            if mean == 3:
-                print(f'Я {self.name} у меня сет!')
-            if mean == 2:
-                print(f'Я {self.name} у меня пара!')
+        print(result)
+        for key in result:
+            if result.get(key) == 2:
+                print(f'У меня пара из {key}')
+                self.points = 1
+            if result.get(key) == 3:
+                print(f'У меня сет из {key}')
+                self.points = 4
+            if result.get(key) == 4:
+                print(f'У меня карэ из {key}')
+                self.points = 15
+
+        # for count in result:
+        #     local_list.append(result[count])
+        #     print(local_list)
+        # for mean in local_list:
+        #     if mean == 4:
+        #         print(f'Я {self.name} у меня карэ!')
+        #     if mean == 3:
+        #         print(f'Я {self.name} у меня сет!')
+        #     if mean == 2:
+        #         print(f'Я {self.name} у меня пара!')
 
         print(f'Общие карты у {self.name}: {self.total_without_suit_card}')
 
