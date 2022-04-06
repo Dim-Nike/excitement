@@ -31,17 +31,17 @@ class Casino:
                             card_lady, card_king, card_ace],
                       }
         self.total_bid = 0
-        self.set_card = {}
+        self.save_card = {}
 
 
     def do_bid(self, person_bid):
         self.total_bid += person_bid
 
     def subtract_dict(self):
-        for key in self.set_card:
+        for key in self.save_card:
             for k in self.cards:
                 if key == k:
-                    for meaning in self.set_card.get(k):
+                    for meaning in self.save_card.get(k):
                         for m in self.cards.get(key):
                             if meaning == m:
                                 self.cards.get(key).remove(meaning)
@@ -53,14 +53,14 @@ class Casino:
 
 
 
-    def getCard(self):
+    def show_all_cards(self):
         for x in ['P', 'B', 'W', 'C']:
             print('-------------------------')
             for card in self.cards.get(x):
                 print(f'{x} - {card}')
 
-    def get_card(self, count_cycle):
-        self.set_card = {}
+    def give_cards(self, count_cycle):
+        self.save_card = {}
         cycle = 0
 
         while cycle < count_cycle:
@@ -71,21 +71,21 @@ class Casino:
                 for card in self.cards.get(key):
                     count += 1
                     if choice == count:
-                        if key in self.set_card:
-                            self.set_card[key].append(card)
+                        if key in self.save_card:
+                            self.save_card[key].append(card)
                             cycle += 1
                             self.subtract_dict()
                         else:
-                            self.set_card[key] = [card]
+                            self.save_card[key] = [card]
                             cycle += 1
                             self.subtract_dict()
                     else:
                         continue
+        return self.save_card
 
-
-Cas_1 = Casino()
-
-Room = Table()
+# Cas_1 = Casino()
+#
+# Room = Table()
 # Cas_1.get_card(count_cycle=Room.start_count_card)
 # table_cards = Cas_1.set_card
 # print(table_cards)
@@ -95,21 +95,46 @@ Room = Table()
 # print(table_cards)
 # Room.total_card(cards=table_cards)
 
-Cas_1.get_card(count_cycle=3)
-table_cards = Cas_1.set_card
-Room.total_card(cards=table_cards)
-Cas_1.get_card(count_cycle=1)
-table_cards = Cas_1.set_card
-Room.total_card(cards=table_cards)
+# Cas_1.get_card(count_cycle=3)
+# table_cards = Cas_1.set_card
+# print(f'Казино дало карты: {table_cards}')
+# Cas_1.get_card(count_cycle=1)
+# Room.total_card(cards=table_cards)
+# table_cards = Cas_1.set_card
+# print(f'Казино дало карты: {table_cards}')
+# Room.total_card(cards=table_cards)
+#
+#
+# Ivan = Person(name='Иван', chips=1000, room=True)
+# Sveta = Person(name='Света', chips=1000, room=True)
+#
+# Cas_1.get_card(Ivan.count_card)
+# Ivan_card = Cas_1.set_card
+# Cas_1.get_card(Sveta.count_card)
+# Sveta_card = Cas_1.set_card
 
+# Room = Casino()
+# Big_table = Table()
+#
+# Ivan = Person(name='Иван', chips=1000, room=True)
+# Sveta = Person(name='Света', chips=1000, room=True)
+#
+# Room.get_card(count_cycle=Big_table.start_count_card)
+# table_card = Room.set_card
+# Big_table.total_card(cards=table_card)
+# Room.get_card(Ivan.count_card)
+# ivan_card = Room.set_card
+# Ivan.get_card(two_card=ivan_card)
+# Room.get_card(Sveta.count_card)
+# sveta_card = Room.set_card
+# Sveta.get_card(two_card=sveta_card)
+# Room.get_card(count_cycle=Big_table.next_count_card)
+# table_card = Room.set_card
+# print(f'Казино дало карты: {table_card}')
+# Big_table.total_card(cards=table_card)
+# print('-------------------------')
+# print(f'Оставшиеся карты: {Room.getCard()}')
 
-Ivan = Person(name='Иван', chips=1000, room=True)
-Sveta = Person(name='Света', chips=1000, room=True)
-
-Cas_1.get_card(Ivan.count_card)
-Ivan_card = Cas_1.set_card
-Cas_1.get_card(Sveta.count_card)
-Sveta_card = Cas_1.set_card
 
 
 
