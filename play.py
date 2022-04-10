@@ -1,24 +1,26 @@
 from collections import Counter
 
 class Person:
-    def __init__(self, name, chips, room):
+    def __init__(self, name, chips=1000, room=True):
         self.name = name
         self.chips = chips
         self.room = room
-        self.bid = 0
         self.inPlay = True
         self.card = {}
         self.count_card = 2
         self.points = 0
         self.total_without_suit_card = []
         self.total_with_suit_card = {}
+        self.bid = 0
 
-    def up_ante(self, count):
-        self.bid = count
-        self.chips -= count
+    def place_bet(self, chips, room_chips):
+        self.bid = chips
+        self.chips -= chips
+        room_chips.total_bank += chips
+        print(f'Я {self.name} моя повышенная ставка - {self.bid}')
 
     def skip(self):
-        self.bid = 0
+        print(f'Я {self.name} я пропускаю ход')
 
     def throw_off(self):
         self.inPlay = False
@@ -61,7 +63,7 @@ class Person:
                 print(f'У меня пара из {key}')
                 pari = 1
 
-        print(local_list)
+        # print(local_list)
         for combination in local_list:
             if combination == 'Пара':
                 count_pari += 1
@@ -75,6 +77,8 @@ class Person:
             two_pari += 1
             print('У меня две пары!')
 
+        # print(f'Общие карты у {self.name}: {self.total_without_suit_card}')
+
         if kare == 1:
             self.points = 7
         elif full_house:
@@ -86,25 +90,6 @@ class Person:
         elif pari == 1:
             self.points = 1
         print(f'Я {self.name} у меня {self.points} баллов!')
-
-
-
-
-
-
-
-        # for count in result:
-        #     local_list.append(result[count])
-        #     print(local_list)
-        # for mean in local_list:
-        #     if mean == 4:
-        #         print(f'Я {self.name} у меня карэ!')
-        #     if mean == 3:
-        #         print(f'Я {self.name} у меня сет!')
-        #     if mean == 2:
-        #         print(f'Я {self.name} у меня пара!')
-
-        print(f'Общие карты у {self.name}: {self.total_without_suit_card}')
 
     def __str__(self):
         return f'I am {self.name}'

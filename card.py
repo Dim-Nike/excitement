@@ -33,7 +33,6 @@ class Casino:
         self.total_bid = 0
         self.save_card = {}
 
-
     def do_bid(self, person_bid):
         self.total_bid += person_bid
 
@@ -49,9 +48,6 @@ class Casino:
                                 continue
                 else:
                     continue
-
-
-
 
     def show_all_cards(self):
         for x in ['P', 'B', 'W', 'C']:
@@ -83,57 +79,6 @@ class Casino:
                         continue
         return self.save_card
 
-# Cas_1 = Casino()
-#
-# Room = Table()
-# Cas_1.get_card(count_cycle=Room.start_count_card)
-# table_cards = Cas_1.set_card
-# print(table_cards)
-# Room.total_card(cards=table_cards)
-# Cas_1.get_card(count_cycle=Room.next_count_card)
-# table_cards = Cas_1.set_card
-# print(table_cards)
-# Room.total_card(cards=table_cards)
-
-# Cas_1.get_card(count_cycle=3)
-# table_cards = Cas_1.set_card
-# print(f'Казино дало карты: {table_cards}')
-# Cas_1.get_card(count_cycle=1)
-# Room.total_card(cards=table_cards)
-# table_cards = Cas_1.set_card
-# print(f'Казино дало карты: {table_cards}')
-# Room.total_card(cards=table_cards)
-#
-#
-# Ivan = Person(name='Иван', chips=1000, room=True)
-# Sveta = Person(name='Света', chips=1000, room=True)
-#
-# Cas_1.get_card(Ivan.count_card)
-# Ivan_card = Cas_1.set_card
-# Cas_1.get_card(Sveta.count_card)
-# Sveta_card = Cas_1.set_card
-
-# Room = Casino()
-# Big_table = Table()
-#
-# Ivan = Person(name='Иван', chips=1000, room=True)
-# Sveta = Person(name='Света', chips=1000, room=True)
-#
-# Room.get_card(count_cycle=Big_table.start_count_card)
-# table_card = Room.set_card
-# Big_table.total_card(cards=table_card)
-# Room.get_card(Ivan.count_card)
-# ivan_card = Room.set_card
-# Ivan.get_card(two_card=ivan_card)
-# Room.get_card(Sveta.count_card)
-# sveta_card = Room.set_card
-# Sveta.get_card(two_card=sveta_card)
-# Room.get_card(count_cycle=Big_table.next_count_card)
-# table_card = Room.set_card
-# print(f'Казино дало карты: {table_card}')
-# Big_table.total_card(cards=table_card)
-# print('-------------------------')
-# print(f'Оставшиеся карты: {Room.getCard()}')
 
 
 
@@ -145,7 +90,3 @@ class Casino:
 
 
 
-# Ivan.get_card(two_card=Ivan_card)
-# Sveta.get_card(two_card=Sveta_card)
-#
-# print(Cas_1.getCard())

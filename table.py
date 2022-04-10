@@ -18,5 +18,4 @@ class Table:
         else:
             self.table_card = cards
 
-
         print(f'Я стол, мои карты: {self.table_card}')
