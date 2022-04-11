@@ -20,7 +20,7 @@ class Person:
         print(f'Я {self.name} моя повышенная ставка - {self.bid}')
 
     def skip(self):
-        print(f'Я {self.name} я пропускаю ход')
+        print(f'Я {self.name} - пропускаю ход')
 
     def throw_off(self):
         self.inPlay = False

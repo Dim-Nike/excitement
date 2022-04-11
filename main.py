@@ -8,7 +8,7 @@ chips = Chips()
 room = Room()
 
 list_name = [
-    'Иван', 'Игорь', 'Ольга'
+    'Иван', 'Игорь', 'Ольга', 'Света', "Ярик", "Кеша"
 ]
 
 list_playing = []
@@ -56,9 +56,15 @@ while True:
         print('=======')
         exam.examination_pair()
     for score in list_playing:
-        chips.win_check(point=score.points, room=room, user=score)
+        chips.highest_mark(point=score.points, room=room)
+    # for win_person in list_playing:
+    #     chips.win_check(room=room, user=win_person)
+    chips.user_win(list_person=list_playing, room=room)
+    print(f'mark - {len(chips.points)}\nnumber_person - {len(room.number_person)}')
     for user in list_playing:
         print(f'Я {user.name} у меня {user.chips} фишек!')
+    print(f'Всего фишек осталось - {chips.total_bank}\npoint_chips - {chips.points}')
+    print(f'Наивысший балл - {chips.highest_score}')
     break
 
 
