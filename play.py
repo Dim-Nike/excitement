@@ -63,7 +63,6 @@ class Person:
                 print(f'У меня пара из {key}')
                 pari = 1
 
-        # print(local_list)
         for combination in local_list:
             if combination == 'Пара':
                 count_pari += 1
@@ -95,7 +94,7 @@ class Person:
         return f'Игрок {self.name}\n' \
                f'Фишки - {self.chips}\n' \
                f'Мои карты - {self.card}\n' \
-               f'Мой комбинация - {self.points}'
+               f'Моя комбинация - {self.points}'
 
 
 

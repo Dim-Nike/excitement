@@ -1,14 +1,21 @@
+from climage import convert
+from PIL import Image
+import simple_draw as s_p
+
 from card import Casino
 from table import Table
 from play import Person
 from room import Room
 from chips import Chips
 
+img = Image.open('./Images/K.png')
+img.show()
+
 chips = Chips()
 room = Room()
 
 list_name = [
-    'Иван', 'Игорь'
+    'Иван', 'Игорь', 'Олег'
 ]
 
 list_playing = []
@@ -22,7 +29,6 @@ for name in list_name:
 
 for person in list_playing:
     room.number_person.append(person)
-
 
 
 # for x in room.number_person:
@@ -67,20 +73,18 @@ for person in list_playing:
 
 
 def place_bid(user):
-    user_bid = len(input('Моя ставка... '))
-    user_bid = len(input('Моя повышенная ставка... '))
-    user_bid = 'Я скидываю...'
     user_action = len(input('Что ты сделаешь?\n'
                             '1. Пропустить\n'
                             '2. Поднять ставку\n'
-                            '3. Скинуть'))
+                            '3. Скинуть\n'))
     if user_action == 1:
         print(f'{user.name} пропустил ход')
-    elif user_action == 2:
+    if user_action == 2:
         user.place_bet(chips=len(input('Сколько ставишь? ')), room_chips=chips)
         print(f'Ставка {user} - {user.bid}')
-    elif user_action == 3:
+    if user_action == 3:
         print(F'{user.name} покинул партию!')
+
 
 print('--- Начало положено ---')
 print(f'Встречайте наших игроков...\n')
@@ -98,23 +102,7 @@ while True:
         user_play.examination(table_card=BigTable.table_card)
         user_play.examination_pair()
         print(user_play)
+        s_p.sleep(5)
         place_bid(user=user_play)
+        print("\n" * 100)
     break
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
