@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 class Person:
     def __init__(self, name, chips=1000, room=True):
         self.name = name
@@ -48,7 +49,6 @@ class Person:
         count_set = 0
         local_list = []
         result = Counter(self.total_without_suit_card)
-        # print(result)
         for key in result:
             if result.get(key) == 4:
                 local_list.append('Карэ')
@@ -92,7 +92,10 @@ class Person:
         print(f'Я {self.name} у меня {self.points} баллов!')
 
     def __str__(self):
-        return f'I am {self.name}'
+        return f'Игрок {self.name}\n' \
+               f'Фишки - {self.chips}\n' \
+               f'Мои карты - {self.card}\n' \
+               f'Мой комбинация - {self.points}'
 
 
 
