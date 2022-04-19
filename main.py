@@ -139,6 +139,6 @@ for score in list_playing:
     chips.highest_mark(score.points, room=room)
 for user in list_playing:
     chips.win_check(room=room, user=user)
-chips.win_check(list_playing, room)
+    chips.win_check(list_playing, room)
 for user in list_playing:
     print(f'---{user}---')
