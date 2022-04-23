@@ -49,8 +49,7 @@ class Person:
 
         local_list = []
         result = Counter(self.total_without_suit_card)
-        print(f'-----------{result}--------------')
-
+        
         for key in result:
             if result.get(key) == 4:
                 local_list.append('Карэ')
@@ -65,11 +64,6 @@ class Person:
                 print(f'У меня пара из {key}')
                 pari = 1
 
-        #      Игорь 'B': [12], 'W': [9]
-        #      Иван  'P': [3, 13]
-        #      Стол  'W': [5, 2], 'B': [11, 4]
-
-
         for combination in local_list:
             if combination == 'Пара':
                 count_pari += 1
@@ -82,9 +76,6 @@ class Person:
         if count_pari == 2 or count_pari == 3:
             two_pari = 1
             print('У меня две пары')
-
-
-        # print(f'Общие карты у {self.name}: {self.total_without_suit_card}')
 
         if kare == 1:
             self.points = 7

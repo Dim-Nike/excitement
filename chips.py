@@ -5,6 +5,7 @@ class Chips:
         self.points = []
         self.highest_score = 0
         self.number_of_wins = 0
+        self.max_bid = 0
 
 
     def highest_mark(self, point, room):
@@ -13,8 +14,23 @@ class Chips:
             self.highest_score = max(self.points)
             print(f'---Наивысший балл - {self.highest_score}---')
 
+    def bid_check(self, user, list_users, happening=1):
+        highest_bid = 0
+        for playing in list_users:
+            if playing.bid > highest_bid:
+                highest_bid = playing.bid
+        print(f'Наивысший балл - {highest_bid}')
+        if happening == 1:
+            if user.bid >= highest_bid:
+                return True
+        if happening == 2:
+            if user.bid > highest_bid:
+                return True
+
+
+
     def win_check(self, room, user):
-        if  self.highest_score == user.points:
+        if self.highest_score == user.points:
             for value in self.points:
                 if self.highest_score == value:
                     self.number_of_wins += 1
@@ -22,7 +38,6 @@ class Chips:
             print(f'Всего победителей - {self.number_of_wins}\n'
                   f'Фишки передаются игроку с наивысшим баллом - {self.highest_score}\n'
                   f'Количество фишек - {self.total_bank}')
-            print('ffpokdsjmnfoilkejhnofigerjmgfoierjnm')
         self.number_of_wins = 0
 
 

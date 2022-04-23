@@ -4,6 +4,7 @@ class Table:
         self.next_count_card = 1
         self.table_card = {}
 
+
     def get_total_card(self, cards):
         if self.table_card != {}:
             for key in cards:
@@ -17,5 +18,7 @@ class Table:
                         break
         else:
             self.table_card = cards
-
         print(f'Я стол, мои карты: {self.table_card}')
+
+    def remove_card(self):
+        self.table_card = {}
