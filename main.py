@@ -10,7 +10,7 @@ chips = Chips()
 room = Room()
 
 list_name = [
-    'Иван'
+    'Иван', "Игорь"
 ]
 
 list_playing = []
@@ -68,16 +68,18 @@ for person in list_playing:
 
 
 def place_bid(user):
-    user_action = int(input('Что ты сделаешь?\n'
-                            '1. Пропустить\n'
-                            '2. Поднять ставку\n'
-                            '3. Скинуть\n'))
+    # user_action = int(input('Что ты сделаешь?\n'
+    #                         '1. Пропустить\n'
+    #                         '2. Поднять ставку\n'
+    #                         '3. Скинуть\n'))
+    user_action = 2
 
     if user_action == 1:
         print(f'{user.name} пропустил ход')
         print(user)
     if user_action == 2:
-        user.place_bet(chips=int(input('Сколько ставишь? ')), room_chips=chips)
+        # user.place_bet(chips=int(input('Сколько ставишь? ')), room_chips=chips)
+        user.place_bet(chips=100, room_chips=chips)
         print(user)
     if user_action == 3:
         print(F'{user.name} покинул партию!')
@@ -136,9 +138,10 @@ while True:
 
 
 for score in list_playing:
-    chips.highest_mark(score.points, room=room)
+    chips.highest_mark(score, room=room)
 for user in list_playing:
     chips.win_check(room=room, user=user)
-    chips.win_check(list_playing, room)
+    # chips.win_check(list_playing, room)
 for user in list_playing:
     print(f'---{user}---')
+print(f'Карты стола - {BigTable.table_card}')

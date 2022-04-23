@@ -7,7 +7,7 @@ class Chips:
         self.number_of_wins = 0
 
     def highest_mark(self, point, room):
-        self.points.append(point)
+        self.points.append(point.points)
         if len(self.points) == len(room.number_person):
             self.highest_score = max(self.points)
             print(f'---Наивысший балл - {self.highest_score}---')
@@ -21,7 +21,6 @@ class Chips:
             user.chips += self.total_bank // self.number_of_wins
             print(f'Фишки передаются игроку с наивысшим баллом - {self.number_of_wins}\n'
                   f'Количество фишек - {self.total_bank}')
-            print(f'Self_wins - {self.number_of_wins}')
             self.total_bank -= self.total_bank // self.number_of_wins
         self.number_of_wins = 0
 
@@ -33,8 +32,7 @@ class Chips:
         for user in list_person:
             if len(self.points) == len(room.number_person) and self.highest_score == user.points:
                 user.chips += self.total_bank // self.number_of_wins
-                print(f'Фишки передаются игроку с наивысшим баллом - {self.number_of_wins}\n'
-                      f'Количество фишек - {self.total_bank}')
+                print(f'Всего победителей - {self.number_of_wins}\n')
 
         self.total_bank = 0
 
