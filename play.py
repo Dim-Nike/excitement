@@ -44,9 +44,9 @@ class Person:
         set = 0
         full_house = 0
         kare = 0
-
         count_pari = 0
         count_set = 0
+
         local_list = []
         result = Counter(self.total_without_suit_card)
         print(f'-----------{result}--------------')
@@ -56,21 +56,25 @@ class Person:
                 local_list.append('Карэ')
                 print(f'У меня карэ из {key}')
                 kare = 1
-            if result.get(key) == 3:
+            elif result.get(key) == 3:
                 local_list.append('Сет')
                 print(f'У меня сет из {key}')
                 set = 1
-            if result.get(key) == 2:
+            elif result.get(key) == 2:
                 local_list.append('Пара')
                 print(f'У меня пара из {key}')
                 pari = 1
 
+        #      Игорь 'B': [12], 'W': [9]
+        #      Иван  'P': [3, 13]
+        #      Стол  'W': [5, 2], 'B': [11, 4]
+
 
         for combination in local_list:
             if combination == 'Пара':
-                count_pari = 1
+                count_pari += 1
             if combination == 'Сет':
-                count_set = 1
+                count_set += 1
 
         if count_set == 1 and count_pari == 1 or count_set == 1 and count_pari == 2:
             full_house = 1
@@ -84,7 +88,7 @@ class Person:
 
         if kare == 1:
             self.points = 7
-        elif full_house:
+        elif full_house == 1:
             self.points = 6
         elif set == 1:
             self.points = 3

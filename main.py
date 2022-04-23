@@ -10,7 +10,7 @@ chips = Chips()
 room = Room()
 
 list_name = [
-    'Иван', "Игорь"
+    'Иван', "Игорь", 'Мария', 'Владимир'
 ]
 
 list_playing = []
@@ -88,15 +88,15 @@ def place_bid(user):
 
 def user_place_bet():
     for user_play in list_playing:
-        person_cards = Room.give_cards(count_cycle=user_play.count_card)
-        user_play.get_card(cards=person_cards)
+        if user_play.card == {}:
+            person_cards = Room.give_cards(count_cycle=user_play.count_card)
+            user_play.get_card(cards=person_cards)
         user_play.examination(table_card=BigTable.table_card)
         user_play.examination_pair()
         print(user_play)
         print(f'Карты стола - {BigTable.table_card}')
         place_bid(user=user_play)
         pr_sleep(0)
-        print(f'--- Подводим итоги---')
 
 
 
@@ -138,11 +138,12 @@ while True:
 
 
 for score in list_playing:
-    chips.highest_mark(score, room=room)
+    chips.highest_mark(point=score, room=room)
 
 for user in list_playing:
     chips.win_check(room=room, user=user)
-    # chips.win_check(list_playing, room)
+
 for user in list_playing:
     print(f'---{user}---')
+chips.remove_values()
 print(f'Карты стола - {BigTable.table_card}')
