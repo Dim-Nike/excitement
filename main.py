@@ -118,7 +118,7 @@ print(f'Встречайте наших игроков...\n')
 for person in list_playing:
     print(f'Я {person.name}, мое состояние в комнате - {person.inPlay}\nмои фишки - {person.chips}')
 
-pr_sleep(5)
+pr_sleep(0)
 
 while True:
     for user in list_playing:
@@ -139,6 +139,7 @@ while True:
 
 for score in list_playing:
     chips.highest_mark(score, room=room)
+
 for user in list_playing:
     chips.win_check(room=room, user=user)
     # chips.win_check(list_playing, room)
