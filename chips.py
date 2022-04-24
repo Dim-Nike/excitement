@@ -20,10 +20,15 @@ class Chips:
             if playing.bid > highest_bid:
                 highest_bid = playing.bid
         print(f'Наивысший балл - {highest_bid}')
+        if happening == 0:
+            return highest_bid
         if happening == 1:
-            if user.bid >= highest_bid:
+            if highest_bid == user.bid:
                 return True
         if happening == 2:
+            if user.bid >= highest_bid:
+                return True
+        if happening == 3:
             if user.bid > highest_bid:
                 return True
 

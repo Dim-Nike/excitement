@@ -31,34 +31,48 @@ for person in list_playing:
 
 
 def place_bid(user):
-    # user_action = int(input('Что ты сделаешь?\n'
-    #                         '1. Пропустить\n'
-    #                         '2. Поднять ставку\n'
-    #                         '3. Скинуть\n'))
-    user_action = 2
-
-    if user_action == 1:
-        print(f'{user.name} пропустил ход')
-        print(user)
-    if user_action == 2:
-        while True:
-            user.place_bet(chips=int(input('Сколько поставить ставку?\n')), room_chips=chips)
-            if chips.bid_check(user=user, list_users=list_playing, happening=2):
-                print(f'{user.name} поставил {user.bid} фишек\n'
-                      f'Ставка принята!')
+    while True:
+        if chips.bid_check(user=user, list_users=list_playing, happening=1):
+            action_1 = 'Пропустить'
+        else:
+            action_1 = 'Сравнять'
+        action_2 = 'Повысить'
+        action_3 = 'Сбросить'
+        print(f'1. {action_1}\n'
+              f'2. {action_2}\n'
+              f'3. {action_3}')
+        user_action = int(input(f'Твой ход!\n'))
+        if user_action == 1:
+            if action_1 == 'Пропустить':
+                print(f'{user.name} пропустил ход')
                 print(user)
-                break
-            else:
-                print(f'Тебе необходимо поставить больше, чем '
-                      f'наивысшая ставка!')
-                continue
-            # user.place_bet(chips=int(input('Сколько ставишь? ')), room_chips=chips)
+            elif action_1 == 'Сравнять':
+                user.place_bet(chips=chips.bid_check(user=user, list_users=list_playing, happening=0), room_chips=chips)
+                print(f'-=-=-=-=-=-=-=--=Моя ставка {user.bid}-=-=-=-=-=-=-=--=')
+                print(user)
+            break
+        if user_action == 2:
+            while True:
+                higher_rate = int(input('Сколько поставить ставку?\n'))
+                if chips.bid_check(user=user, list_users=list_playing, happening=1):
+                    user.place_bet(chips=higher_rate, room_chips=chips)
+                    print(f'{user.name} поставил {user.bid} фишек\n'
+                          f'Ставка принята!')
+                    print(user)
+                    break
+                else:
+                    print(f'Тебе необходимо поставить больше, чем '
+                          f'наивысшая ставка!')
+                    continue
+            break
+        if user_action == 3:
+            print(F'{user.name} покинул партию!')
+            print(user)
+            break
+        else:
+            print('Нет такого варианта!')
+            continue
 
-
-
-    if user_action == 3:
-        print(F'{user.name} покинул партию!')
-        print(user)
 
 
 def user_place_bet():
